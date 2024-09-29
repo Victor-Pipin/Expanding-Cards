@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+  font-family: "Permanent Marker", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  width: 90vh;
+}
+
+.panel {
+  /* Настройка свойства background-image: в divах */
+  /* Размер */
+  background-size: auto 100%;
+  /* Расположение */
+  background-position: center;
+  /* Повтор изображения при наличии места, не повторять */
+  background-repeat: no-repeat;
+  height: 80vh;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  /* При использовании в классе active свойства flex: 5;
+    размер будет увеличен на заданное (5),
+    относительно остальных элементов со значением flex: 0.5; */
+  flex: 0.5;
+  margin: 10px;
+  position: relative;
+  /* При изменении свойства flex, например в классе active на значение 5,
+    будет происходить анимация со скоростью 0,7s, в начале медленно к концу быстрее (ease-in) */
+  transition: flex 0.7s ease-in;
+}
+
+.panel h3 {
+  font-size: 24px;
+  /* Позиционирование относительно родителя (.panel) */
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  /* Убираю margin который есть у h3 по умолчанию */
+  margin: 0;
+  /* В классе .active изменится и станет видимым */
+  opacity: 0;
+}
+
+.panel p {
+  /* Позиционирование относительно родителя (.panel) */
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  margin: 0;
+  opacity: 0;
+}
+
+.panel.active {
+  flex: 5;
+}
+
+.panel.active h3 {
+  opacity: 1;
+}
+
+.panel.active p {
+    opacity: 1;
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100vw;
+  }
+
+  .panel:nth-of-type(4),.panel:nth-of-type(5) {
+    display: none;
+  }
+}
+
+.panel.walking-down-on-street {
+  background-image: url(images/walking_on_street.jpg);
+}
+
+.panel.northern-lights {
+  background-image: url(images/northern_lights.jpg);
+}
+
+.panel.lilac-bouquet {
+  background-image: url(images/lilac_bouquet.jpg);
+}
+
+.panel.underpass {
+  background-image: url(images/underpass.jpg);
+}
+
+.panel.waterfall-bridge {
+  background-image: url(images/waterfall_bridge.jpg);
+}
