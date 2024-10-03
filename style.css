@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -69,18 +69,23 @@ body {
 
 .panel.active h3 {
   opacity: 1;
+  /* Анимация свойства opacity: длиться 0.3 секунды,
+  начнется через 0.4 секунды и будет ускоряться к концу */
+  transition: opacity 0.3s ease-in 0.4s;
 }
 
 .panel.active p {
-    opacity: 1;
+  opacity: 1;
 }
 
+/* Для маленького экрана убираю 2 последние фотографии */
 @media (max-width: 480px) {
   .container {
     width: 100vw;
   }
 
-  .panel:nth-of-type(4),.panel:nth-of-type(5) {
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5) {
     display: none;
   }
 }
